@@ -24,3 +24,10 @@ jobs:
 
       - name: Run tests
         run: pytest --browser=chrome --env=qa
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+            name: selenium-test-report
+            path: reports/report.html
