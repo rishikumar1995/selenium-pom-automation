@@ -18,6 +18,8 @@ def pytest_addoption(parser):
         help="Browser to run tests on"
     )
 
+os.makedirs("logs", exist_ok=True)
+
 logging.basicConfig(
     level = logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
