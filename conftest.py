@@ -19,7 +19,6 @@ def pytest_addoption(parser):
     )
 
 os.makedirs("logs", exist_ok=True)
-
 logging.basicConfig(
     level = logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -37,7 +36,7 @@ def driver(request):
     if browser == "chrome":
         options = webdriver.ChromeOptions()
 
-        if os.getenv("CI") == "true":
+        if os.getenv("CI") == "true" or os.getenv("DOCKER") == "true":
             options.add_argument("--headless")
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")

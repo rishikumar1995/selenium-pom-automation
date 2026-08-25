@@ -1,4 +1,4 @@
-pytest
-selenium
-pytest-html
-pytest-xdist
+pytest==9.1.1
+selenium==4.47.0
+pytest-html==4.2.0
+pytest-xdist==3.8.0
