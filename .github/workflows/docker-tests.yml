@@ -18,4 +18,12 @@ jobs:
         run: docker build -t selenium-pom:test .
 
       - name: Run Selenium tests
-        run: docker run --rm selenium-pom:test pytest --browser=chrome --env=qa
+        run: docker run --name selenium-test selenium-pom:test pytest --browser=chrome --env=qa
+
+      - name: Copy reports
+        if: always()
+        run: docker cp selenium-test:/app/reports ./reports
+
+      - name: Copy screenshots
+        if: always()
+        run: docker cp selenium-test:/app/screenshots ./screenshots
