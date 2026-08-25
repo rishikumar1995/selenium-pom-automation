@@ -26,4 +26,15 @@ jobs:
 
       - name: Copy screenshots
         if: always()
-        run: docker cp selenium-test:/app/screenshots ./screenshots
+        run: |
+          docker cp selenium-test:/app/screenshots ./screenshots || true
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-test-results
+          path: |
+            reports/
+            screenshots/
+          if-no-files-found: ignore
