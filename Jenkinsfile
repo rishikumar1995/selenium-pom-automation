@@ -23,7 +23,8 @@ pipeline {
                 reportFiles: 'report.html',
                 reportName: 'Selenium Automation Report',
                 keepAll: true,
-                alwaysLinkToLastBuild: true
+                alwaysLinkToLastBuild: true,
+                allowMissing: false
             ])
         }
     }
