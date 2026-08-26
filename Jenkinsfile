@@ -14,6 +14,17 @@ pipeline {
                 bat 'python -m pytest -v'
             }
         }
+    }
 
+    post {
+        always {
+            publishHTML([
+                reportDir: 'reports',
+                reportFiles: 'report.html',
+                reportName: 'Selenium Automation Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true
+            ])
+        }
     }
 }
