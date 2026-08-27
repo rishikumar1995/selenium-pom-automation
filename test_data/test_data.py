@@ -36,5 +36,5 @@ VALID_USER = {
 
 USERS = {
     "username":"abc",
-    "password":"123"
+    "password":"abc"
 }
