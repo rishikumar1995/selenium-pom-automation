@@ -33,3 +33,8 @@ VALID_USER = {
     "username": "standard_user",
     "password": "secret_sauce"
 }
+
+USERS = {
+    "username":"abc",
+    "password":"123"
+}
