@@ -1,0 +1,23 @@
+name: AWS EC2 Selenium Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-on-ec2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run tests on EC2
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/selenium_aws/selenium-pom-automation
+            git pull origin main
+            chmod +x run_tests.sh
+            ./run_tests.sh
